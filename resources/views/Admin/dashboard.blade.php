@@ -22,7 +22,7 @@
     
     <div id="wrapper">
         
-        <nav class="navbar navbar-default top-navbar" role="navigation">
+        <nav class="navbar navbar-default top-navbar" role="navigation" style="background-color: darkcyan">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -30,10 +30,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="  navbar-brand" href="{{url('LayoutUtama')}}"><strong>Bayaran</strong></a>
+                <a class="  navbar-brand" href="{{url('/')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" style="background-color: darkcyan">
                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -50,13 +50,13 @@
             </ul>
         </nav>
         <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side" role="navigation" style="background-color: darkcyan">
         <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="" href="{{url('LayoutUtama')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="" href="{{url('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a class="ui-elements.html" href="{{url('admin/datasiswa')}}"><i class="fa fa-desktop"></i> Data Siswa</a>
@@ -103,24 +103,24 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa-eye fa-5x"></i>
                                 
                             </div>
-                            <div class="panel-right">
+                            <div class="panel-right" style="background-color: darkcyan">
                                 <h3>10,253</h3>
                                <strong> Data Spp</strong>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                              <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                              <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 
-                            <div class="panel-right">
+                            <div class="panel-right" style="background-color: darkcyan">
                             <h3>33,180 </h3>
                                <strong> Data Kelas</strong>
 
@@ -128,12 +128,12 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa fa-comments fa-5x"></i>
                                
                             </div>
-                            <div class="panel-right">
+                            <div class="panel-right" style="background-color: darkcyan">
                              <h3>16,022 </h3>
                                <strong> Data Petugas </strong>
 
@@ -141,12 +141,12 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa-users fa-5x"></i>
                                 
                             </div>
-                            <div class="panel-right">
+                            <div class="panel-right" style="background-color: darkcyan">
                             <h3>36,752 </h3>
                              <strong>Data Siswa</strong>
 
@@ -155,107 +155,9 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-md-5">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Line Chart Pembayaran Spp
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-line-chart"></div>
-                        </div>                      
-                    </div>   
-                    </div>      
-                    
-                        <div class="col-md-7">
-                    <div class="panel panel-default">
-                    <div class="panel-heading">
-                                Bar Chart Pembayaran Spp
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                        
-                    </div>  
-                    </div>
-                    
-                </div> 
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Siswa</h4>
-                        <div class="easypiechart" id="easypiechart-blue" data-percent="82" ><span class="percent">82%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Belum Membayar</h4>
-                        <div class="easypiechart" id="easypiechart-orange" data-percent="55" ><span class="percent">55%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Sudah Membayar</h4>
-                        <div class="easypiechart" id="easypiechart-teal" data-percent="84" ><span class="percent">84%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-body easypiechart-panel">
-                        <h4>Admin</h4>
-                        <div class="easypiechart" id="easypiechart-red" data-percent="46" ><span class="percent">46%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/.row-->
-                <div class="row">
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">                            
-                            <div class="panel-heading">
-                            Area Chart
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Donut Chart
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                <div class="col-md-12">
-                
-                    </div>      
-                </div>  
-                <!-- /. ROW  -->
-
-       
-                
-                
-                
-                <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="panel panel-default" >
+                            <div class="panel-heading" style="background-color: darkcyan">
                                 Tasks Panel
                             </div>
                             <div class="panel-body">
@@ -284,7 +186,7 @@
                     <div class="col-md-8 col-sm-12 col-xs-12">
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" style="background-color: darkcyan">
                                 Responsive Table Example
                             </div> 
                             <div class="panel-body">
@@ -302,9 +204,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>John</td>
-                                                <td>Doe</td>
-                                                <td>John15482</td>
+                                                <td>Alysha</td>
+                                                <td>telu</td>
+                                                <td>Alysha15482</td>
                                                 <td>name@site.com</td>
                                             </tr>
                                             <tr>
