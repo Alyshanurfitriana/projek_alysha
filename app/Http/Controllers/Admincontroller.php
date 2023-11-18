@@ -2,30 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pembayaran;
-use App\Models\petugas;
-use App\Models\siswa;
+use App\Models\Kelas;
+use App\Models\Pembayaran;
+use App\Models\Petugas;
+use App\Models\Siswa;
+use App\Models\spp;
 use Illuminate\Http\Request;
 
-class Admincontroller extends Controller
+class AdminController extends Controller
 {
-    public function dashboard(){
-        return view('admin.dashboard');
+    public function admindashboard(){
+        return view('Admin.dashboard');
     }
     public function adminlogin(){
         return view('admin.login');
+    
     }
     public function cekadminlogin(Request $request){
-        $p = new petugas();
+        $p = new Petugas();
         if($p->where('username',$request->input('username'))->where('password',$request->input('password')) ->exists()){
          $petugas = $p->first();
             session(['petugas'=>$petugas]);
-         return redirect('/');
+         return redirect('admin/dashboard');
         }
         return back()->with('pesan','username dan password belum terdaftar kakak');
     } 
+
+    //tambah petugas
+    public function tambahsiswa(){
+        return view('admin.tambahsiswa');
+    }
+    public function cekTambahsiswa(Request $request){ 
+        $cek = $request->validate([
+            'nisn'=>'required|max:16',
+            'nis'=>'unique',
+            'nama'=>'required|min:5',
+            'id_kelas'=>'unique',
+            'alamat'=>'unique',
+            'no_telp'=>'unique',
+            'id_spp'=>'unique'
+        ]);
+        $m = new Siswa();
+        $m->create($request->all());
+        return redirect('admin.tambahsiswa');        
+    }
+    //tabel
     public function datasiswa(){
-        $m = new siswa();
+        $m = new Siswa();
         return view('admin.datasiswa',['data'=>$m->all()]);
     }
     public function cekDatasiswa(Request $request){
@@ -40,22 +63,94 @@ class Admincontroller extends Controller
             'id_spp'=>'unique'
         ]);
         $m->create($request->all());
-        return back();
     }
+    //tambah petugas
+    public function petugas(){
+        return view('admin.petugas');
+    }
+    public function cekPetugas(Request $request){ 
+        $cek = $request->validate([
+            'username'=>'required',
+            'password'=>'required',
+            'nama_petugas'=>'required'
+        ]);
+        $m = new Petugas();
+        $m->create($request->all());
+        return redirect('admin/datapetugas');        
+    }
+    //tabel
     public function datapetugas(){
-        return view('admin.datapetugas');
+        $m = new Petugas();
+        return view('admin.datapetugas',['data'=>$m->all()]);
+    }
+    public function cekDatapetugas(Request $request){
+         $m = new Petugas();
+        $cek = $request->validate([
+            'username'=>'required',
+            'password'=>'required',
+            'nama_petugas'=>'required',            
+            'level'=>['admin','petugas']
+        ]);
+        $m->create($request->all());
     }
 
+    public function edit($username){
+        $m = new Petugas();
+        return view('edit.editpetugas',['data'=>$m->find($username)]);
+    }
+    public function update(Request $request,$username){
+        $validasi = $request->validate([
+            'username'=>'required',
+            'password'=>'required',
+            'nama_petugas'=>'required',            
+            'level'=>['admin','petugas']
+        ]);
+
+        $m = new Petugas();
+        $m = $m->find($username);
+        $m->update($request->all());
+        return redirect('admin.petugas');
+    }
+    public function hapus($username){
+        $m = new Petugas();
+        $m = $m->find($username);
+        $m->delete();
+        return redirect('admin.petugas');
+    }
     public function transaksi(){
         return view('admin.transaksi');
     }
-
+    //tambah kelas
+    public function tambahkelas(){
+        return view('admin.tambahkelas');
+    }
+    public function cekTambahkelas(Request $request){ 
+        $cek = $request->validate([
+            'nama_kelas'=>'required',
+            'kompetensi_keahlian'=>'required'
+        ]);
+        $m = new Kelas();
+        $m->create($request->all());
+        return redirect('admin/datakelas');        
+    }
+    
+    //tabel
     public function datakelas(){
-        return view('admin.datakelas');
+        $m = new Kelas();
+        return view('admin.datakelas',['data'=>$m->all()]);
+    }
+    public function cekDatakelas(Request $request){
+         $m = new Kelas();
+        $cek = $request->validate([
+            'nama_kelas'=>'required',
+            'kompetensi_keahlian'=>'required'            
+        ]);
+        $m->create($request->all());
     }
 
     public function dataspp(){
-        return view('admin.dataspp');
+        $m = new spp();
+        return view('admin.dataspp',['data'=>$m->all()]);
     }
 
     public function histori(){
@@ -63,7 +158,7 @@ class Admincontroller extends Controller
         return view('admin.histori',['data'=>$m->all()]);
     }
     public function cekhistoriAdmin(Request $request){
-        $m = new pembayaran();
+        $m = new Pembayaran();
         $cek = $request->validate([
             'id_petugas'=>'required',
             'nisn'=>'unique',
@@ -74,6 +169,11 @@ class Admincontroller extends Controller
             'jumlah_bayar'=>'unique'
         ]);
         $m->create($request->all());
+        return back();
+    }
+
+    public function logout(){
+        session()->flush();
         return back();
     }
 }

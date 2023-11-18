@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admincontroller;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,31 +15,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
+Route::get('/', function () {
+    return view('welcome');
+});
 //admin
-Route::get('/',[Admincontroller::class,'/']);
+Route::get('admin/dashboard',[AdminController::class,'admindashboard']);
+Route::post('admin/dashboard',[AdminController::class,'cekadmindashboard']);
 
-Route::get('dashboard', [Admincontroller::class, 'dashboard']);
+Route::get('admin/login',[AdminController::class,'adminlogin']);
+Route::post('admin/login',[AdminController::class,'cekadminlogin']);
+Route::post('idk',[AdminController::class,'cekadminlogin']);
 
-Route::get('admin/login', [Admincontroller::class, 'adminlogin']);
-Route::post('admin/login', [Admincontroller::class, 'cekadminlogin']);
-Route::post('idk', [Admincontroller::class, 'cekadminlogin']);
+Route::get('admin/tambahsiswa',[AdminController::class,'tambahsiswa']);
+Route::post('admin/tambahsiswa',[AdminController::class,'cekTambahsiswa']);
+Route::get('admin/datasiswa',[AdminController::class,'datasiswa']);
+Route::post('admin/datasiswa',[AdminController::class,'cekDatasiswa']);
 
-Route::get('admin/datasiswa', [Admincontroller::class, 'datasiswa']);
-Route::post('admin/datasiswa', [Admincontroller::class, 'cekdatasiswa']);
+Route::get('admin/petugas',[AdminController::class,'petugas']);
+Route::post('admin/petugas',[AdminController::class,'cekPetugas']);
+Route::get('admin/datapetugas',[AdminController::class,'datapetugas']);
+Route::post('admin/datapetugas',[AdminController::class,'cekDatapetugas']);
+Route::get('admin/edit/{username}',[AdminController::class,'edit']);
+Route::post('admin/edit/{username}',[AdminController::class,'update']);
+Route::get('admin/hapus/{username}',[AdminController::class,'hapus']);
 
-Route::get('admin/datapetugas', [Admincontroller::class, 'petugas']);
-Route::post('admin/datapetuigas', [Admincontroller::class, 'cekpetugas']);
+Route::get('admin/transaksi',[AdminController::class,'transaksi']);
+Route::post('admin/transaksi',[AdminController::class,'cekTransaksi']);
 
-Route::get('admin/datakelas', [Admincontroller::class, 'kelas']);
-Route::post('admin/datakelas', [Admincontroller::class, 'cekkelas']);
+Route::get('admin/tambahkelas',[AdminController::class,'tambahkelas']);
+Route::post('admin/tambahkelas',[AdminController::class,'cekTambahkelas']);
+Route::get('admin/datakelas',[AdminController::class,'datakelas']);
+Route::post('admin/dadtakelas',[AdminController::class,'cekDatakelas']);
 
-Route::get('admin/dataspp', [Admincontroller::class, 'spp']);
-Route::post('admin/dataspp', [Admincontroller::class, 'cekspp']);
+Route::get('admin/dataspp',[AdminController::class,'dataspp']);
 
+Route::get('admin/histori',[AdminController::class,'histori']);
+Route::post('admin/datasiswa',[AdminController::class,'cekhistoriAdmin']);
 
+//siswa
+Route::get('siswa/login',[SiswaController::class,'login']);
+Route::post('siswa/login',[SiswaController::class,'cekLogin']);
 
-
-
+//logout
+//logout
+Route::get('logout',[SiswaController::class,'logout']);
+Route::get('logout',[AdminController::class,'logout']);

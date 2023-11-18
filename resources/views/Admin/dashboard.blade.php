@@ -103,9 +103,9 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
-                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
-                                <i class="fa fa-eye fa-5x"></i>
+                        <div class= style="background-color: darkcyan">
+                            <div class= style="background-color: darkcyan">
+                               
                                 
                             </div>
                             <div class="panel-right" style="background-color: darkcyan">
@@ -115,9 +115,9 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
-                              <div class="panel-left pull-left blue" style="background-color: darkcyan">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
+                        <div class= style="background-color: darkcyan">
+                              <div class= style="background-color: darkcyan">
+                               
                                 </div>
                                 
                             <div class="panel-right" style="background-color: darkcyan">
@@ -128,9 +128,9 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
-                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
-                                <i class="fa fa fa-comments fa-5x"></i>
+                        <div class= style="background-color: darkcyan">
+                            <div class= style="background-color: darkcyan">
+                                
                                
                             </div>
                             <div class="panel-right" style="background-color: darkcyan">
@@ -141,9 +141,9 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
-                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
-                                <i class="fa fa-users fa-5x"></i>
+                        <div class= style="background-color: darkcyan">
+                            <div class= style="background-color: darkcyan">
+                            
                                 
                             </div>
                             <div class="panel-right" style="background-color: darkcyan">

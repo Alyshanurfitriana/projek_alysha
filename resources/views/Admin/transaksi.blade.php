@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="  navbar-brand" href="{{url('LayoutUtama')}}"><strong>Bayarin</strong></a>
+                <a class="  navbar-brand" href="{{url('LayoutUtama')}}"><strong>Pembayaran</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

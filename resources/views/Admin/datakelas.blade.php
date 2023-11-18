@@ -85,7 +85,7 @@
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
-          <div class="header"> 
+          <div class="header" style="background-color: darkcyan"> 
                         <h1 class="page-header">
                             TABLE
                         </h1>
@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default" style="background-color: darkcyan">
+                    <div class="panel panel-default">
                         <div class="panel-heading" style="background-color: darkcyan">
                              Data Siswa
                         </div>

@@ -98,7 +98,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default" style="background-color: darkcyan">
+                    <div class="panel panel-default">
                         <div class="panel-heading" style="background-color: darkcyan">
                              Data Spp
                         </div>
