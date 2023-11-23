@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="  navbar-brand" href="{{url('/')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
+                <a class="  navbar-brand" href="{{url('LayoutUtama')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right" style="background-color: darkcyan">
@@ -41,7 +41,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="{{url('admin/login')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a class="fa fa-sign-out fa-fw" href="{{url('admin/logout')}}" role="button">Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -51,12 +51,10 @@
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation" style="background-color: darkcyan">
-        <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
                     <li>
-                        <a class="" href="{{url('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="" href="{{url('LayoutUtama')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a class="ui-elements.html" href="{{url('admin/datasiswa')}}"><i class="fa fa-desktop"></i> Data Siswa</a>
@@ -69,13 +67,13 @@
                     </li>
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Data Spp</a>
+                        <a class="table.html" href="{{url('admin/dataspp')}}" ><i class="fa fa-table"></i> Data Spp </a>
                     </li>
                     <li>
                         <a class="form.html" href="{{url('admin/transaksi')}}"><i class="fa fa-edit"></i> Transaksi Pembayaran</a>
                     </li>
                     <li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Histori Pembayaran</a>
+                        <a class="chart.html" href="{{url('admin/histori')}}"><i class="fa fa-bar-chart-o"></i> Histori Pembayaran</a>
                     </li>
                     <li>
                         <a href="ui-elements.html"><i class="fa fa-desktop"></i> Laporan</a>
@@ -83,7 +81,6 @@
                         </ul>
                     </li>
                 </ul>
-
             </div>
 
         </nav>
@@ -91,9 +88,9 @@
       
         <div id="page-wrapper">
             <div class="header">
-                <h3 class="page-header">
+                <h1 class="page-header">
                     Dashboard
-                </h3>
+                </h1>
                         
                                     
         </div>
@@ -103,24 +100,24 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class= style="background-color: darkcyan">
-                            <div class= style="background-color: darkcyan">
-                               
+                        <div class="panel panel-primary text-center no-boder blue">
+                            <div class="panel-left pull-left blue">
+                                <i class="fa fa-eye fa-5x"></i>
                                 
                             </div>
-                            <div class="panel-right" style="background-color: darkcyan">
+                            <div class="panel-right">
                                 <h3>10,253</h3>
                                <strong> Data Spp</strong>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class= style="background-color: darkcyan">
-                              <div class= style="background-color: darkcyan">
-                               
+                        <div class="panel panel-primary text-center no-boder blue">
+                              <div class="panel-left pull-left blue">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 
-                            <div class="panel-right" style="background-color: darkcyan">
+                            <div class="panel-right">
                             <h3>33,180 </h3>
                                <strong> Data Kelas</strong>
 
@@ -128,12 +125,12 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class= style="background-color: darkcyan">
-                            <div class= style="background-color: darkcyan">
-                                
+                        <div class="panel panel-primary text-center no-boder blue">
+                            <div class="panel-left pull-left blue">
+                                <i class="fa fa fa-comments fa-5x"></i>
                                
                             </div>
-                            <div class="panel-right" style="background-color: darkcyan">
+                            <div class="panel-right">
                              <h3>16,022 </h3>
                                <strong> Data Petugas </strong>
 
@@ -141,12 +138,12 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class= style="background-color: darkcyan">
-                            <div class= style="background-color: darkcyan">
-                            
+                        <div class="panel panel-primary text-center no-boder blue">
+                            <div class="panel-left pull-left blue">
+                                <i class="fa fa-users fa-5x"></i>
                                 
                             </div>
-                            <div class="panel-right" style="background-color: darkcyan">
+                            <div class="panel-right">
                             <h3>36,752 </h3>
                              <strong>Data Siswa</strong>
 
@@ -154,10 +151,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-default" >
-                            <div class="panel-heading" style="background-color: darkcyan">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
                                 Tasks Panel
                             </div>
                             <div class="panel-body">
@@ -186,7 +184,7 @@
                     <div class="col-md-8 col-sm-12 col-xs-12">
 
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: darkcyan">
+                            <div class="panel-heading">
                                 Responsive Table Example
                             </div> 
                             <div class="panel-body">
@@ -204,9 +202,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Alysha</td>
-                                                <td>telu</td>
-                                                <td>Alysha15482</td>
+                                                <td>John</td>
+                                                <td>Doe</td>
+                                                <td>John15482</td>
                                                 <td>name@site.com</td>
                                             </tr>
                                             <tr>
@@ -228,16 +226,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-                <!-- /. ROW  -->
             </div>
-            <!-- /. PAGE INNER  -->
         </div>
-        <!-- /. PAGE WRAPPER  -->
     </div>
-    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="/assets/js/jquery-1.10.2.js"></script>
