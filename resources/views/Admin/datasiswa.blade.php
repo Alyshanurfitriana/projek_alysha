@@ -27,10 +27,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('LayoutUtama')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
+                <a class="navbar-brand" href="{{url('LayoutUtama')}}"><strong>Pembayaran</strong></a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" style="background-color: darkcyan">
                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -97,13 +97,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-default" >
-                        <div class="panel-heading" style="background-color: darkcyan">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
                              Tabel Data Siswa
                         </div>
-                        <div class="panel-body" >
+                        <div class="panel-body" style="background-color: darkcyan">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example" >
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
                                             <th>NISN</th>
@@ -113,6 +113,7 @@
                                             <th>Alamat</th>
                                             <th>Telepon</th>
                                             <th>Id Spp</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -125,6 +126,10 @@
                                     <td>{{$inem->alamat}}</td>
                                     <td>{{$inem->no_telp}}</td>
                                     <td>{{$inem->id_spp}}</td>
+                                    <td>
+                                        <button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
+                                        <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
+                                    </td>
                                 </tr>
                                 @endforeach
                                     </tbody>
@@ -134,7 +139,7 @@
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-                    <a class="btn btn-primary" href="{{url('/admin/tambahsiswa')}}" style="background-color: darkcyan" role="button">Tambah</a>
+                    <a class="btn btn-primary" href="{{url('/admin/tambahsiswa')}}" role="button">Tambah</a>
                 </div>
             </div>
         </div>

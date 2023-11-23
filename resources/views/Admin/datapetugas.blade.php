@@ -3,15 +3,19 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tambah Petugas</title>
+    <title>Data Petugas</title>
     <!-- Bootstrap Styles-->
     <link href="/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="/assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- Morris Chart Styles-->
+   
         <!-- Custom Styles-->
     <link href="/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+     <!-- TABLE STYLES-->
+    <link href="/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
@@ -23,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="  navbar-brand" href="{{url('/')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
+                <a class="  navbar-brand" href="{{url('dashboard')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -48,7 +52,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="" href="{{url('LayoutUtama')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="" href="{{url('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a class="ui-elements.html" href="{{url('admin/datasiswa')}}"><i class="fa fa-desktop"></i> Data Siswa</a>
@@ -82,71 +86,66 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper" >
           <div class="header"> 
-                        <h1 class="page-header" style="background-color: darkcyan">
-                             Tambah Petugas
+                        <h1 class="page-header">
+                            Data Petugas
                         </h1>
-
+                        <a href="{{url('admin/datapetugas')}}" >
+                        </a>
+                                    
         </div>
-            <form action="{{url('admin/petugas')}}" method="post">
-                @csrf
+        
             <div id="page-inner"> 
-              <div class="row">
-                <div class="col-lg-12">
+            <form action="{{url('admin/datapetugas')}}" method="post">
+                @csrf
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
                     <div class="panel panel-default">
-                        <div class="panel-heading" style="background-color: darkcyan">
-                            Tambah Petugas
+                        <div class="panel-heading">
+                             Tabel Data Petugas
                         </div>
-                        <div class="card-body">
-                            @if (session('pesan'))
-                                <div class="alert alert-primary" role="alert">
-                                    {{session('pesan')}}
-                                  </div>
-                                @endif
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Username</label>
-                                            <input type="text" class="form-control" name="username" placeholder="username">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-control" name="password" placeholder="password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nama Petugas</label>
-                                            <input type="text" class="form-control" name="nama_petugas" placeholder="nama_petugas">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Level</label>
-                                            <select class="form-control" name="level">
-                                                <option>Admin</option>
-                                                <option>Petugas</option>
-                                            </select>
-                                        </div>
-                                        <button class="btn btn-default">Tambah</button>
-                                        <button class="btn btn-default" type="reset">Batal</button>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                
-                                <!-- /.col-lg-6 (nested) -->
+                        <div class="panel-body" style="background-color: darkcyan">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Id Petugas</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Nama Petugas</th>
+                                            <th>Level</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            @foreach ($data as $inem)
+                                    <tr>
+                                        <td>{{$inem->id_petugas}}</td>
+                                        <td>{{$inem->username}}</td>
+                                        <td>{{$inem->password}}</td>
+                                        <td>{{$inem->nama_petugas}}</td>
+                                        <td>{{$inem->level}}</td>
+                                        <td>
+                                            <a href="{{url('/admin/edit/'.$inem->id_petugas)}}" type="button" class="btn btn-primary" ><i class="fa fa-edit"></i> Edit</a>
+                                            <a  href="{{url('/admin/hapus/'.$inem->id_petugas)}}" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.row (nested) -->
                         </div>
-                        <!-- /.panel-body -->
+                       
                     </div>
-                    <!-- /.panel -->
+                    <!--End Advanced Tables -->
+                    <a class="btn btn-primary" href="{{url('admin/petugas')}}" role="button">Tambah</a>
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            </div>
-             <!-- /. PAGE INNER  -->
             </div>
         </form>
-         <!-- /. PAGE WRAPPER  -->
         </div>
+    </div>
+            </div>
+         <!-- /. PAGE WRAPPER  -->
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -155,11 +154,15 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="/assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
+     <!-- DATA TABLE SCRIPTS -->
+    <script src="/assets/js/dataTables/jquery.dataTables.js"></script>
+    <script src="/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+    </script>
+         <!-- Custom Js -->
     <script src="/assets/js/custom-scripts.js"></script>
-    
-   
 </body>
 </html>
-
-
