@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="  navbar-brand" href="{{url('LayoutUtama')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
+                 <a class="  navbar-brand" href="{{url('dashboard')}}" style="background-color: darkcyan"><strong>Pembayaran</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right" style="background-color: darkcyan">
@@ -52,7 +52,7 @@
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation" style="background-color: darkcyan">
             <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
+                <ul class="nav" id="main-menu" style="background-color: darkcyan">
                     <li>
                         <a class="" href="{{url('LayoutUtama')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
@@ -100,8 +100,8 @@
 
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa-eye fa-5x"></i>
                                 
                             </div>
@@ -112,8 +112,8 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                              <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                              <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 
@@ -125,8 +125,8 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan">
                                 <i class="fa fa fa-comments fa-5x"></i>
                                
                             </div>
@@ -138,8 +138,8 @@
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder blue">
-                            <div class="panel-left pull-left blue">
+                        <div class="panel panel-primary text-center no-boder blue" style="background-color: darkcyan">
+                            <div class="panel-left pull-left blue" style="background-color: darkcyan"> 
                                 <i class="fa fa-users fa-5x"></i>
                                 
                             </div>
@@ -155,7 +155,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" style="background-color: darkcyan">
                                 Tasks Panel
                             </div>
                             <div class="panel-body">
@@ -184,7 +184,7 @@
                     <div class="col-md-8 col-sm-12 col-xs-12">
 
                         <div class="panel panel-default">
-                            <div class="panel-heading">
+                            <div class="panel-heading" style="background-color: darkcyan">
                                 Responsive Table Example
                             </div> 
                             <div class="panel-body">

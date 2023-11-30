@@ -132,7 +132,7 @@ button:hover {
 <body>
 <div class="container">
         <div class="login">
-            <form action="{{url('admin/login')}}" method="post" class="px-2">
+            <form action="{{url('idk')}}" method="post" class="px-2">
                 @csrf
                 
                 <h1>Login</h1>
