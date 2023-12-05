@@ -3,19 +3,15 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Petugas</title>
+    <title>Tambah Petugas</title>
     <!-- Bootstrap Styles-->
     <link href="/assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
     <link href="/assets/css/font-awesome.css" rel="stylesheet" />
-     <!-- Morris Chart Styles-->
-   
         <!-- Custom Styles-->
     <link href="/assets/css/custom-styles.css" rel="stylesheet" />
      <!-- Google Fonts-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-     <!-- TABLE STYLES-->
-    <link href="/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrapper">
@@ -30,21 +26,7 @@
                 <a class="  navbar-brand" href="{{url('LayoutUtama')}}"><strong>Bayarin</strong></a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
-               
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li class="divider"></li>
-                        <li><a class="fa fa-sign-out fa-fw" href="{{url('/logout')}}" role="button">Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
+            
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
@@ -87,65 +69,90 @@
         <div id="page-wrapper" >
           <div class="header"> 
                         <h1 class="page-header">
-                            Data Petugas
+                             Tambah Petugas
                         </h1>
-                        <a href="{{url('admin/datapetugas')}}" >
-                        </a>
-                                    
+
         </div>
-        
-            <div id="page-inner"> 
-            <form action="{{url('admin/datapetugas')}}" method="post">
+            <form action="{{url('admin/petugas')}}" method="post">
                 @csrf
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Advanced Tables -->
+            <div id="page-inner"> 
+              <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Tabel Data Petugas
+                            Tambah Petugas
                         </div>
+                        <div class="card-body">
+                            @if (session('pesan'))
+                                <div class="alert alert-primary" role="alert">
+                                    {{session('pesan')}}
+                                  </div>
+                                @endif
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Id Petugas</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Nama Petugas</th>
-                                            <th>Level</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                            @foreach ($data as $inem)
-                                    <tr>
-                                        <td>{{$inem->id_petugas}}</td>
-                                        <td>{{$inem->username}}</td>
-                                        <td>{{$inem->password}}</td>
-                                        <td>{{$inem->nama_petugas}}</td>
-                                        <td>{{$inem->level}}</td>
-                                        <td>
-                                            <a href="{{url('/admin/edit/'.$inem->id_petugas)}}" type="button" class="btn btn-primary" ><i class="fa fa-edit"></i> Edit</a>
-                                            <a  href="{{url('/admin/hapus/'.$inem->id_petugas)}}" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input type="text" class="form-control" name="username" placeholder="Username">
+                                            @error('username')
+                                <div class="form-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Password">
+                                            @error('password')
+                                <div class="form-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nama Petugas</label>
+                                            <input type="text" class="form-control" name="nama_petugas" placeholder="Nama Petugas">
+                                            @error('nama_petugas')
+                                <div class="form-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Level</label>
+                                            <select class="form-control" name="level">
+                                                <option>Admin</option>
+                                                <option>Petugas</option>
+                                            </select>
+                                            @error('level')
+                                <div class="form-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                                        </div>
+                                        <button class="btn btn-default">Tambah</button>
+                                        <button class="btn btn-default" type="reset">Batal</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
                             </div>
+                            <!-- /.row (nested) -->
                         </div>
-                       
+                        <!-- /.panel-body -->
                     </div>
-                    <!--End Advanced Tables -->
-                    <a class="btn btn-primary" href="{{url('admin/petugas')}}" role="button">Tambah</a>
+                    <!-- /.panel -->
                 </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            </div>
+             <!-- /. PAGE INNER  -->
             </div>
         </form>
-        </div>
-    </div>
-            </div>
          <!-- /. PAGE WRAPPER  -->
+        </div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -154,15 +161,9 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
     <script src="/assets/js/jquery.metisMenu.js"></script>
-     <!-- DATA TABLE SCRIPTS -->
-    <script src="/assets/js/dataTables/jquery.dataTables.js"></script>
-    <script src="/assets/js/dataTables/dataTables.bootstrap.js"></script>
-        <script>
-            $(document).ready(function () {
-                $('#dataTables-example').dataTable();
-            });
-    </script>
-         <!-- Custom Js -->
+      <!-- Custom Js -->
     <script src="/assets/js/custom-scripts.js"></script>
+    
+   
 </body>
 </html>

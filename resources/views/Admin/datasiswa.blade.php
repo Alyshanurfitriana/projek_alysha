@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation" style="background-color: darkcyan">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -27,10 +27,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('LayoutUtama')}}"><strong>Pembayaran</strong></a>
+                <a class="navbar-brand" href="{{url('LayoutUtama')}}"><strong>Bayarin</strong></a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right" style="background-color: darkcyan">
+            <ul class="nav navbar-top-links navbar-right">
                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -38,7 +38,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a class="fa fa-sign-out fa-fw" href="{{url('/logout')}}" role="button">Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -47,7 +47,7 @@
             </ul>
         </nav>
         <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation" style="background-color: darkcyan">
+        <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
@@ -93,7 +93,8 @@
         </div>
         
             <div id="page-inner"> 
-               
+                <form action="{{url('admin/datasiswa')}}" method="post">
+                    @csrf
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -101,7 +102,7 @@
                         <div class="panel-heading">
                              Tabel Data Siswa
                         </div>
-                        <div class="panel-body" style="background-color: darkcyan">
+                        <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
@@ -127,8 +128,8 @@
                                     <td>{{$inem->no_telp}}</td>
                                     <td>{{$inem->id_spp}}</td>
                                     <td>
-                                        <button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
-                                        <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
+                                        <a href="{{url('/admin/editsiswa/'.$inem->nisn)}}" type="button" class="btn btn-primary" ><i class="fa fa-edit"></i> Edit</a>
+                                            <a  href="{{url('/admin/hapussiswa/'.$inem->nisn)}}" class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -139,10 +140,11 @@
                         </div>
                     </div>
                     <!--End Advanced Tables -->
-                    <a class="btn btn-primary" href="{{url('/admin/tambahsiswa')}}" role="button">Tambah</a>
+                    <a class="btn btn-primary" href="{{url('admin/tambah')}}" role="button">Tambah</a>
                 </div>
             </div>
         </div>
+    </form>
     </div>
              <!-- /. PAGE INNER  -->
             </div>
